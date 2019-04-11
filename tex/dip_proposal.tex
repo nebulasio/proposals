@@ -130,6 +130,7 @@ are present all details about the submitted code.
 neb::rt::nr::nr_ret_type entry_point_nr(
   neb::compatible_uint64_t start_block,
   neb::compatible_uint64_t end_block) {
+
   auto to_version_t = [](uint32_t major_version,
                          uint16_t minor_version,
                          uint16_t patch_version)
@@ -146,6 +147,7 @@ neb::rt::nr::nr_ret_type entry_point_nr(
   neb::rt::nr::nr_float_t theta = 1;
   neb::rt::nr::nr_float_t mu = 1;
   neb::rt::nr::nr_float_t lambda = 2;
+
   return neb::rt::nr::entry_point_nr_impl(start_block,
           end_block, to_version_t(0, 0, 1), a, b, c, d,
           theta, mu, lambda);
@@ -165,9 +167,9 @@ neb::rt::dip::dip_ret_type entry_point_dip(
   neb::rt::dip::dip_ret_type ret;
   std::get<0>(ret) = 0;
 
-  uint64_t block_nums_of_a_day = 5;
-  uint64_t days = 1;
-  neb::compatible_uint64_t dip_start_block = 15;
+  uint64_t block_nums_of_a_day = 24 * 3600 / 15;
+  uint64_t days = 7;
+  neb::compatible_uint64_t dip_start_block = 2307000;
   neb::compatible_uint64_t dip_block_interval =
     days * block_nums_of_a_day;
   std::string dip_reward_addr =
