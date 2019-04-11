@@ -4,7 +4,7 @@
 \usepackage{listings}
 \usepackage{parskip}
 \usepackage{indentfirst,graphicx}
-
+\usepackage{minted}
 \newcommand{\wei}[1] {#1 \texttt{wei}}
 
 \date{}
@@ -21,15 +21,32 @@
   morecomment=[f][\color{magenta}]{+++},
 }
 
+%\lstdefinestyle{base}{
+  %language=c++,
+  %breaklines=true,
+  %basicstyle=\ttfamily\color{black},
+  %moredelim=**[is][\color{green!50!black}]{@}{@},
+%}
+%
 \lstdefinestyle{base}{
   language=c++,
-  breaklines=true,
+  breaklines=false,
   basicstyle=\ttfamily\color{black},
   moredelim=**[is][\color{green!50!black}]{@}{@},
+  escapeinside={(*@}{@*)}
 }
 
 \newcommand{\added}[1]{\color{green}{#1}}
 
 \lstset{
   basicstyle=\footnotesize\ttfamily,
+}
+\newcommand{\cc}[1]{\mintinline{c++}{#1}}
+\newminted[cpp]{c++}{}
+\lstset{language=C++,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{green}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
 }
