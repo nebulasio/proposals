@@ -1,0 +1,35 @@
+\usepackage{xcolor}
+\usepackage{fullpage}
+\usepackage[colorlinks, allcolors=blue]{hyperref}
+\usepackage{listings}
+\usepackage{parskip}
+\usepackage{indentfirst,graphicx}
+
+\newcommand{\wei}[1] {#1 \texttt{wei}}
+
+\date{}
+%\title{Title of Proposal}
+%\pagestyle{fancy}
+%\lhead{}
+%\rhead{\includegraphics[scale=0.2]{Nebulas.png}}
+
+\lstdefinelanguage{diff}{
+  morecomment=[f][\color{blue}]{@@},           % group identifier
+  morecomment=[f][\color{red}]{-},             % deleted lines
+  morecomment=[f][\color{green!50!black}]{+},  % added lines
+  morecomment=[f][\color{magenta}]{---},       % diff header lines
+  morecomment=[f][\color{magenta}]{+++},
+}
+
+\lstdefinestyle{base}{
+  language=c++,
+  breaklines=true,
+  basicstyle=\ttfamily\color{black},
+  moredelim=**[is][\color{green!50!black}]{@}{@},
+}
+
+\newcommand{\added}[1]{\color{green}{#1}}
+
+\lstset{
+  basicstyle=\footnotesize\ttfamily,
+}
