@@ -43,28 +43,28 @@ as described\footnote{\url{https://wiki.nebulas.io/en/latest/go-nebulas/design-o
 Given the default gas of a normal transaction is 20,000 gas, the normal transaction fee is only about $2*10^{-8}$ \texttt{NAS}, which is about $2*10^{-8}$ USD for now.
 
 Changing the gas price will affect each normal transaction and each smart contract invocation.
-After the adjustion, the normal transaction fee is about 0.0025 \texttt{NAS}
+After the adjustment, the normal transaction fee is about 0.0004 \texttt{NAS}
 by default. For smart contracts, you may check the gas count
 matrix\footnote{\url{https://wiki.nebulas.io/en/latest/go-nebulas/design-overview/gas.html?\#gas-count-matrix}}.
 
-For the communities, each user need to adjust their transaction fee for normal transaction and smart contract invocation.
+For the communities, each user needs to adjust their transaction fee for normal transaction and smart contract invocation.
 Nebulas wallets, exchanges and DApps are also affected.
 
-Also, there is no impact for applications that use API (\texttt{GetGasPrice}\footnote{\url{https://github.com/nebulasio/wiki/blob/master/rpc.md}}) to get the gas price.
-For applications that with fixed gas price, they need to be updated.
+Also, there is no impact on applications that use API (\texttt{GetGasPrice}\footnote{\url{https://github.com/nebulasio/wiki/blob/master/rpc.md}}) to get the gas price.
+For applications using fixed gas price, they need to be updated.
 
 \section{Impact on the Nebulas Protocol}
-The gas price is set up in configuration file. And only miners need change this behavior.
+The gas price is set up in configuration file. And only miners need to change this behavior.
 No other impact on the Nebulas Protocol.
 
 \section{Design Choices}
 
 The design choice is described on Nebulas Wiki~\footnote{\url{https://wiki.nebulas.io/en/latest/go-nebulas/design-overview/gas.html}}.
 
-Users want to avoid gas costs when the transaction is packaged. Like Bitcoin and Ethereum, Nebulas GAS is used for transaction fee, it have two major purposes:
+Users want to avoid gas costs when the transaction is packaged. Like Bitcoin and Ethereum, Nebulas GAS is also used for transaction fee, with two major purposes:
 \begin{itemize}
-\item As a rewards for miner, to incentive them to pack transactions. The packaging of the transaction costs the computing resources, especially the execution of the contract, so the user needs to pay for the transaction.
-\item As a cost for attackers. The DDOS attach is quite cheap in Internet, black hackers hijack user‘s computer to send large network volume to target server. In Bitcoin and Ethereum network, each transaction must be paid, that significantly raise the cost of attack.
+\item As rewards for miners, to motivate them to pack transactions. The packaging of the transaction costs the computing resources, especially the execution of the contract, so the user needs to pay for the transaction.
+\item As a cost to attackers. The DDOS attack is quite cheap on internet, black hackers hijack user‘s computer to send large network volume to target server. In Bitcoin and Ethereum network, each transaction must be paid, that significantly raise the cost of attack.
 \end{itemize}
 
 Currently, miners can't get enough rewards while attackers pay almost nothing to DDOS Nebulas,
@@ -72,19 +72,19 @@ since gas price is too low.
 
 As a referece, the gas price is about \wei{$10^9$} on Ethereum\footnote{\url{https://etherscan.io/gastracker}}. Considering the coin value of ETH is more than 100x of NAS, the actual gas price on Ethereum is more than 100,000x of Nebulas.
 
-As conclusion, we think it is reasonable to change the gas price from \wei{$10^6$} to \wei{$2*10^10$}.
+As conclusion, we think it is reasonable to change the gas price from \wei{$10^6$} to \wei{$2*10^{10}$}.
 
 \subsection{Potential Impacts}
 There are two potential impacts, and we should foresee them.
 
-First, the increased gas price may lead to less activity on Nebulas.
+First, the increased gas price may lead to less activities on Nebulas.
 
 Second, the NAS coin price may raise. This is because the community may expect
 that the more NAS used to pay gas, the less liquidity of trading market. As a result,
-the transaction fee also raises. This may also lead to less activity on Nebulas.
+the transaction fee also raises. This may also lead to less activities on Nebulas.
 
 \vspace{1em}
-Currently, the transaction fee is not the main cause of the poor activity on Nebulas.
+Currently, the transaction fee is not the major cause of the low activity on Nebulas.
 And we may adjust the gas price again when transaction fee becomes the bottleneck of Nebulas.
 \section{Acknowledgement}
 Community members also show their willingness to change the gas price, including but not limited on Nebulas Community forum\footnote{\url{https://community.nebulas.io/d/190-we-need-adjust-transaction-fee-on-nebulas-mainnet/13}} and Twitter\footnote{\url{https://twitter.com/nebulasio/status/1115234340403859461}}.
