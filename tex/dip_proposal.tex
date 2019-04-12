@@ -34,8 +34,8 @@
 \end{titlepage}
 
 \section{Introduction}
-This proposal includes all parameters and functions for DIP(Developer Incentive
-Protocol) and NR(Nebulas Rank). Although the Yellow
+This proposal includes all parameters and functions for DIP (Developer Incentive
+Protocol) and NR (Nebulas Rank). Although the Yellow
 paper\footnote{\url{https://nebulas.io/docs/NebulasYellowpaper.pdf}} and the
 Mauve paper\footnote{\url{https://nebulas.io/docs/NebulasMauvepaper.pdf}}
 described the algorithm and properties of NR and DIP, concrete functions and
@@ -70,24 +70,23 @@ For the significance of NR and DIP, you may check the Yellow paper and the
 Mauve paper.
 
 The parameters and functions described in this proposal may affect all NAS
-token holders, as they may have different ranking scores according to NR. Also,
-this proposal may affect all DApp developers on Nebulas, as they may get reward
+token holders, as they may have different ranking scores according to NRs. Also,
+this proposal may affect all DApp developers on Nebulas, as they may get rewards
 according to DIP.
 
-Finally, this proposal also affect Nebulas mainnet developers, since they need
+Finally, this proposal also affects Nebulas mainnet developers, since they need
 to implement the detailed functions and update the parameters.
 
 
 \section{Impact on the Nebulas Protocol}
-This proposal largely affect the Nebulas Protocol. And the old Nebulas Protocol
+This proposal largely affects the Nebulas Protocol. And the old Nebulas Protocol
 implementation can't be compatible with the proposal described here.
 Specifically, each Nebulas node should upgrade in order to verify the DIP reward
-transactions, which needs all details specified in this proposal.
+transactions, relying on all details specified in this proposal.
 
 \section{Design Choices}
-There are several parameters are not specified in the Yellow paper and Mauve
-paper. Here we discuss how we choose the concrete value and the tradeoffs we
-make.
+There are several unspecified parameters in the Yellow paper and Mauve
+paper. Here we discuss how we choose the concrete value and how we make trade-offs.
 
 \subsection{The Period of Time for the Core Nebulas Rank}
 In the Section 4 of Yellow paper, we described
@@ -108,13 +107,18 @@ a transaction graph built from 128 blocks.
 
 The side effect is that users may construct forwarding loop across this time
 period, instead of inside this time period. Still, users may do this to improve
-the NR, yet still with upper bond.
+the NR, yet still with upper bound.
 
 We may adjust this by introducing some randomness.
 
 \subsection{The equations in the Yellow paper}
 
 \subsection{The equations in the Mauve paper}
+Results about DIP rewards on the testnet imply that the gap is too large between top DApps and other DApps. So we propose to change the formula 7 in the mauve paper into $f(\mathcal{C}(a_i))=\mathcal{C}(a_i)$ (instead of $f(\mathcal{C}(a_i))=\mathcal{C}(a_i)^2$) to lessen the inequality. 
+
+The $e_{i0}$ in the mauve paper corresponds to an empty DApp. However in the current version the empty DApp has not been deployed yet. So the value of $e_{i0}$ is actually zero now. We will make the $e_{i0}$ variable useful in the future version. 
+
+After we collated the data on the testnet, the attendance rate on the mainnet in the past few weeks and did some simulations, we find the new function of equation 10 in the mauve paper can better reflect the relation between attendance rate $\lambda$ and the rate of actual DIP rewards to the maximum reward. Since the attendance rate variant fiercely, we hope the actual  DIP rewards does not variant to much accordingly. Old linear function is not satisfactory. 
 
 \section{Technical Specifications}
 
