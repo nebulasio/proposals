@@ -149,7 +149,7 @@ neb::rt::nr::nr_ret_type entry_point_nr(
   neb::rt::nr::nr_float_t lambda = 2;
 
   return neb::rt::nr::entry_point_nr_impl(start_block,
-          end_block, to_version_t(0, 0, 1), a, b, c, d,
+          end_block, to_version_t(1, 0, 0), a, b, c, d,
           theta, mu, lambda);
 }
 \end{lstlisting}
@@ -190,7 +190,7 @@ neb::rt::dip::dip_ret_type entry_point_dip(
     std::get<1>(ret) = neb::rt::dip::dip_param_list(
         dip_start_block, dip_block_interval,
         dip_reward_addr, coinbase_addr,
-        to_version_t(0, 0, 1));
+        to_version_t(1, 0, 0));
     std::cout << "dip param list returned" << std::endl;
     return ret;
   }
@@ -212,7 +212,7 @@ neb::rt::dip::dip_ret_type entry_point_dip(
   neb::rt::dip::dip_float_t alpha = 8e-3;
   neb::rt::dip::dip_float_t beta = 1;
   return neb::rt::dip::entry_point_dip_impl(start_block,
-        end_block, to_version_t(0, 0, 1), height,
+        end_block, to_version_t(1, 0, 0), height,
         nr_ret, alpha, beta);
 }
 \end{lstlisting}
