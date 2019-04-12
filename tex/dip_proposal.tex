@@ -112,7 +112,10 @@ the NR, yet still with upper bound.
 We may adjust this by introducing some randomness.
 
 \subsection{The equations in the Yellow paper}
-The NAS distribution on the mainnet implies that the average asset per account is below $1$ NAS which leads to low NR. So we propose to change formula 20 in the yellow paper into $f(x) = x/(1 + (\frac{a}{x})^b)$ where $a=100$ and $b=0.5$. Therefore, user with small stakes will suffer minor loss in NR. 
+The Equation 17 in the Yellow paper is $\gamma(v) = (\frac{\theta\cdot \mathcal{G}(v)}{\mathcal{G}(v) + \mu})^{\lambda}$. It is clear that $\gamma(v)$ should be monotonous and has limitation. We find that the average transferring NAS is below 1 NAS so here we set $\theta=1$, $\mu=1$. Besides, $\gamma()$ function is submodular so $\lambda$ should be greater than 1. Here we set $\lambda=2$ on consideration of code optimization.
+
+The NAS distribution on the mainnet implies that the average asset per account is below $1$ NAS which leads to low NR. So we propose to change Equation 20 in the Yellow paper into $f(x) = x/(1 + (\frac{a}{x})^b)$ where $a=100$ and $b=0.5$. Therefore, user with small stakes will suffer minor loss of NR. 
+
 
 \subsection{The equations in the Mauve paper}
 Results about DIP rewards on the testnet imply that the gap is too large between top DApps and other DApps. So we propose to change the formula 7 in the mauve paper into $f(\mathcal{C}(a_i))=\mathcal{C}(a_i)$ (instead of $f(\mathcal{C}(a_i))=\mathcal{C}(a_i)^2$) to lessen the inequality. 
